@@ -8,4 +8,4 @@
 ## demo
 
 live link:
-[Sunday School](https://sabovoichita.github.io/sunday-school-word-search-game/)
+[Sunday School](https://sabovoichita.github.io/sunday-school-cross-out-game/)
