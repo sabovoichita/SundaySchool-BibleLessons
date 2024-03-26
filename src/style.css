@@ -1,0 +1,90 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+html {
+  height: 100%;
+}
+h1 {
+  text-align: center;
+}
+
+body > div {
+  border: 2px solid rgb(210, 29, 29);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: large;
+  text-align: center;
+  margin: 10px;
+  height: 700px;
+}
+
+.crossClick {
+  /* border: 2px solid black; */
+  border-radius: 4px;
+  padding: 10px;
+  font-size: large;
+  text-align: center;
+  margin: 10px;
+  font-style: italic;
+  text-decoration: line-through;
+  cursor: pointer;
+  background-color: rgb(205, 205, 239);
+}
+
+#ana {
+  transform: rotate(-10deg);
+  bottom: -30px;
+  left: -70px;
+  position: relative;
+  z-index: 1;
+}
+#simeon {
+  transform: rotate(+10deg);
+  top: 377px;
+  left: 60px;
+  position: relative;
+  z-index: 1;
+}
+#div1 {
+  border-radius: 10px;
+  transform: rotate(-10deg);
+  top: 140px;
+  left: +43px;
+  position: absolute;
+}
+
+#div2 {
+  border-radius: 10px;
+  transform: rotate(+20deg);
+  top: 160px;
+  left: 300px;
+  position: absolute;
+}
+#div3 {
+  border-radius: 10px;
+  transform: rotate(+10deg);
+  top: 250px;
+  left: 180px;
+  position: absolute;
+}
+#div4 {
+  border-radius: 10px;
+  transform: rotate(-10deg);
+  top: 400px;
+  left: 40px;
+  position: absolute;
+}
+#div5 {
+  border-radius: 10px;
+  left: 50px;
+  top: 700px;
+  position: absolute;
+  transform: rotate(45deg);
+}
