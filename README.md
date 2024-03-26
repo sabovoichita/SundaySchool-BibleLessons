@@ -7,4 +7,5 @@
 
 ## demo
 
-[Sunday School](https://github.com/sabovoichita/sabovoichita.github.io/SundaySchool-BibleLessons)
+live link:
+[Sunday School](https://sabovoichita.github.io/sunday-school-word-search-game/)
