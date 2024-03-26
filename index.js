@@ -1,4 +1,3 @@
-import "./style.css";
 document.querySelector("#div1").addEventListener("click", e => {
   e.target.classList.add("crossClick");
 });
