@@ -1,25 +1,48 @@
-document.querySelector("#div1").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
+function randomRotateDivs(divs, angleRange) {
+  divs.forEach(function (div) {
+    var rotation = Math.floor(Math.random() * (angleRange[1] - angleRange[0] + 1)) + angleRange[0];
+    div.style.transform = "rotate(" + rotation + "deg)";
+  });
+}
+
+// Get all divs with class 'display'
+var divs = document.querySelectorAll(".cross");
+
+// Define the angle range for rotation (in degrees)
+var angleRange = [-90, 90]; // Adjust as needed
+
+// Rotate the divs randomly within the specified angle range
+randomRotateDivs(divs, angleRange);
+
+function addClickEventListenerToDivs(divs, callback) {
+  divs.forEach(function (div) {
+    div.addEventListener("click", function (event) {
+      // Prevent default behavior
+      event.preventDefault();
+      checkAndAddClassToDivs(event);
+
+      // Execute the callback function with the clicked div as an argument
+      callback(div);
+    });
+  });
+}
+
+// Example usage:
+var divs = document.querySelectorAll(".cross"); // Select divs by class
+addClickEventListenerToDivs(divs, function (div) {
+  console.log("Div with class list: " + div.classList + " was clicked!");
 });
 
-document.querySelector("#div2").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
-document.querySelector("#div3").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
-document.querySelector("#div4").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
-document.querySelector("#div5").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
-document.querySelector("#div6").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
-document.querySelector("#div7").addEventListener("click", e => {
-  e.target.classList.add("crossClick");
-});
+function checkAndAddClassToDivs(event) {
+  console.log("event has class true?", event.target.classList.value.includes("false"));
+
+  if (event.target.classList.value.includes("false")) {
+    console.log("true or false?");
+    event.target.classList.add("crossClickFalse");
+  } else {
+    event.target.classList.add("crossClick");
+  }
+}
 
 function randomDisplayDivs() {
   // Get all div elements
@@ -36,7 +59,8 @@ function randomDisplayDivs() {
 
   // Set the display style for each div
   indexes.forEach(index => {
-    divs[index].style.display = "block";
+    // console.log(divs);
+    divs[(1, 3)].style.display = "block";
     // Or any other desired display style
   });
 }
@@ -44,19 +68,3 @@ function randomDisplayDivs() {
 // Example usage:
 // Call randomDisplayDivs() to randomize the display of divs
 // randomDisplayDivs();
-
-function randomRotateDivs(divs, angleRange) {
-  divs.forEach(function (div) {
-    var rotation = Math.floor(Math.random() * (angleRange[1] - angleRange[0] + 1)) + angleRange[0];
-    div.style.transform = "rotate(" + rotation + "deg)";
-  });
-}
-
-// Get all divs with class 'rotate-div'
-var divs = document.querySelectorAll(".cross");
-
-// Define the angle range for rotation (in degrees)
-var angleRange = [-25, 65]; // Adjust as needed
-
-// Rotate the divs randomly within the specified angle range
-randomRotateDivs(divs, angleRange);

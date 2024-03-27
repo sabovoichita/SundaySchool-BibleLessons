@@ -7,20 +7,47 @@ body {
   background-color: rgb(205, 244, 244);
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
 }
+/* To Design Denisa */
+button {
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 15px;
+  font-size: larger;
+}
 
-body > div {
+section {
+  border: 5px double blue;
   border-radius: 4px;
-  padding: 100px;
-  font-size: large;
-  text-align: center;
-  margin: 10px;
-  height: 30px;
-  position: relative;
+  padding: 40px;
+  block-size: fit-content;
 }
 
+div[data-true] {
+  background-color: rgb(151, 242, 151);
+  padding: 10px;
+  font-size: larger;
+  text-align: center;
+  margin: 30px;
+  height: 30px;
+  position: static;
+  block-size: fit-content;
+  border-radius: 10px;
+}
+
+.crossClickFalse {
+  font-size: x-large;
+  text-align: center;
+  font-style: oblique;
+  text-decoration: line-through;
+}
+.crossClick:hover {
+  cursor: pointer;
+}
 .crossClick {
   /* border: 2px solid black; */
   border-radius: 4px;
@@ -29,61 +56,23 @@ body > div {
   text-align: center;
   margin: 10px;
   font-style: italic;
-  text-decoration: line-through;
+  color: red;
   cursor: pointer;
   z-index: -1;
 }
-.crossClick:hover {
-  cursor: pointer;
-}
+
 #ana {
   display: flex;
-  /* transform: rotate(-10deg); */
+  transform: rotate(-10deg);
   /* bottom: -30px;
   left: -70px; */
   position: relative;
   z-index: 1;
 }
 #simeon {
-  /* transform: rotate(+10deg); */
+  transform: rotate(+10deg);
   /* top: 377px;
   left: 60px; */
   position: relative;
   z-index: 1;
 }
-/* #div1 {
-  border-radius: 10px;
-  transform: rotate(-10deg);
-  top: 140px;
-  left: +43px;
-  position: absolute;
-}
-
-#div2 {
-  border-radius: 10px;
-  transform: rotate(+20deg);
-  top: 160px;
-  left: 300px;
-  position: absolute;
-}
-#div3 {
-  border-radius: 10px;
-  transform: rotate(+10deg);
-  top: 250px;
-  left: 180px;
-  position: absolute;
-}
-#div4 {
-  border-radius: 10px;
-  transform: rotate(-10deg);
-  top: 400px;
-  left: 40px;
-  position: absolute;
-}
-#div5 {
-  border-radius: 10px;
-  left: 50px;
-  top: 700px;
-  position: absolute;
-  transform: rotate(45deg);
-} */

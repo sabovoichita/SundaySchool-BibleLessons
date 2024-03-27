@@ -7,27 +7,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Sunday School Games 📚</h1>
+    <header>
+      <h1>Sunday School Games 📚</h1>
+      <h1>Cross out false statements</h1>
+      <h2>One click - one chance!</h2>
 
-    <h1>Cross out false statements</h1>
+      <button type="reset">Reset</button>
+    </header>
 
-    <div style="display: flex">
-      <div class="cross">
-        <img class="img" id="ana" src="images/Ana.png" alt="Ana" width="100px" />
+    <section>
+      <div style="display: flex">
+        <div>
+          <img class="img" id="ana" src="images/Ana.png" alt="Ana" width="100px" />
+        </div>
+        <div class="cross true" data-true="true">Simeon was righteous and devout</div>
+        <div class="cross true" data-true="true">God promised Simeon would see the Saviour</div>
+        <div class="cross false" data-true="false">Simeon was very young</div>
+        <div class="cross true" data-true="true">The Holy Spirit was on Simeon</div>
       </div>
-      <div id="div5" class="cross">Simeon was righteous and devout</div>
-      <div id="div4" class="cross">God promised Simeon would see the Saviour</div>
-      <div id="div3" class="cross">Simeon was very young</div>
-      <div id="div2" class="cross">The Holy Spirit was on Simeon</div>
-    </div>
-    <div style="display: flex">
-      <div id="div1" class="cross">Anna was a prophetess</div>
-      <div id="div6" class="cross">Anna never went to the temple</div>
-      <div id="div7" class="cross">Anna gave thanks to God when she saw Jesus</div>
-      <div div class="cross">
-        <img class="img" id="simeon" src="images/Simeon.png" alt="Simeon" width="100px" />
+      <div style="display: flex">
+        <div class="cross true" data-true="true">Anna was a prophetess</div>
+        <div class="cross false" data-true="false">Anna never went to the temple</div>
+        <div class="cross true" data-true="true">Anna gave thanks to God when she saw Jesus</div>
+        <div>
+          <img class="img" id="simeon" src="images/Simeon.png" alt="Simeon" width="100px" />
+        </div>
       </div>
-    </div>
+    </section>
 
     <script src="index.js"></script>
   </body>
