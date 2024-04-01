@@ -1,9 +1,9 @@
 [
-  { "statement": "Simeon was righteous and devout", "class": "true" },
-  { "statement": "God promised Simeon would see the Saviour", "class": "true" },
-  { "statement": "Simeon was very young", "class": "false" },
-  { "statement": "The Holy Spirit was on Simeon", "class": "true" },
-  { "statement": "Anna was a prophetess", "class": "true" },
-  { "statement": "Anna never went to the temple", "class": "false" },
-  { "statement": "Anna gave thanks to God when she saw Jesus", "class": "true" }
+  { "content": "Simeon was righteous and devout", "state": "true", "class": "divs" },
+  { "content": "God promised Simeon would see the Saviour", "state": "true", "class": "divs" },
+  { "content": "Simeon was very young", "state": "false", "class": "divs" },
+  { "content": "The Holy Spirit was on Simeon", "state": "true", "class": "divs" },
+  { "content": "Anna was a prophetess", "state": "true", "class": "divs" },
+  { "content": "Anna never went to the temple", "state": "false", "class": "divs" },
+  { "content": "Anna gave thanks to God when she saw Jesus", "state": "true", "class": "divs" }
 ]

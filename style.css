@@ -18,6 +18,11 @@ header {
   align-items: center;
 }
 /* To Design Denisa */
+
+.displaySpan {
+  display: none;
+}
+
 button {
   width: 100px;
   height: 40px;
@@ -46,7 +51,7 @@ section {
 }
 
 .crossClickFalse {
-  font-size: x-large;
+  font-size: large;
   text-align: center;
   font-style: oblique;
   text-decoration: line-through;
