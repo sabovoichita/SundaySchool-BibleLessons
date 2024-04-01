@@ -11,6 +11,12 @@ h1,
 h2 {
   text-align: center;
 }
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 /* To Design Denisa */
 button {
   width: 100px;
@@ -27,15 +33,15 @@ section {
   block-size: fit-content;
 }
 
-div[data-true] {
+.divs {
   background-color: rgb(151, 242, 151);
   padding: 10px;
   font-size: larger;
   text-align: center;
   margin: 30px;
   height: 30px;
-  position: static;
-  block-size: fit-content;
+  /* position: static;
+  block-size: fit-content; */
   border-radius: 10px;
 }
 
@@ -49,7 +55,7 @@ div[data-true] {
   cursor: pointer;
 }
 .crossClick {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   border-radius: 4px;
   padding: 10px;
   font-size: large;
@@ -62,17 +68,22 @@ div[data-true] {
 }
 
 #ana {
+  height: 150px;
   display: flex;
   transform: rotate(-10deg);
   /* bottom: -30px;
   left: -70px; */
-  position: relative;
+  /* position: relative; */
   z-index: 1;
+  padding: 20px;
 }
 #simeon {
+  padding: 30px;
+
+  height: 150px;
   transform: rotate(+10deg);
   /* top: 377px;
   left: 60px; */
-  position: relative;
+  /* position: relative; */
   z-index: 1;
 }

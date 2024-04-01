@@ -8,32 +8,19 @@
   </head>
   <body>
     <header>
-      <h1>Sunday School Games 📚</h1>
-      <h1>Cross out false statements</h1>
-      <h2>One click - one chance!</h2>
-
-      <button type="reset">Reset</button>
+      <div><img id="ana" src="images/Ana.png" alt="" /></div>
+      <div>
+        <h1>Sunday School Games 📚</h1>
+        <h2>Cross out false statements</h2>
+        <h2>One click - one chance!</h2>
+      </div>
+      <div>
+        <img id="simeon" src="images/Simeon.png" alt="" />
+      </div>
     </header>
 
-    <section>
-      <div style="display: flex">
-        <div>
-          <img class="img" id="ana" src="images/Ana.png" alt="Ana" width="100px" />
-        </div>
-        <div class="cross true" data-true="true">Simeon was righteous and devout</div>
-        <div class="cross true" data-true="true">God promised Simeon would see the Saviour</div>
-        <div class="cross false" data-true="false">Simeon was very young</div>
-        <div class="cross true" data-true="true">The Holy Spirit was on Simeon</div>
-      </div>
-      <div style="display: flex">
-        <div class="cross true" data-true="true">Anna was a prophetess</div>
-        <div class="cross false" data-true="false">Anna never went to the temple</div>
-        <div class="cross true" data-true="true">Anna gave thanks to God when she saw Jesus</div>
-        <div>
-          <img class="img" id="simeon" src="images/Simeon.png" alt="Simeon" width="100px" />
-        </div>
-      </div>
-    </section>
+    <section id="display-statements"></section>
+    <button id="reset" data-reset="reset" type="reset">Reset</button>
 
     <script src="index.js"></script>
   </body>
