@@ -4,12 +4,22 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background-color: rgb(205, 244, 244);
+  background-color: rgb(7, 22, 15);
 }
 
 h1,
 h2 {
   text-align: center;
+  color: aliceblue;
+}
+
+#buttonArea button {
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 15px;
+  font-size: larger;
+  box-shadow: inset 5em 1em rgb(246, 232, 149);
 }
 
 header {
@@ -32,22 +42,31 @@ button {
 }
 
 section {
-  border: 5px double blue;
   border-radius: 4px;
   padding: 40px;
-  block-size: fit-content;
+  max-height: fit-content;
 }
 
 .divs {
-  background-color: rgb(151, 242, 151);
+  width: fit-content - 100px;
+  background-color: rgb(25, 28, 25);
+  color: white;
   padding: 10px;
   font-size: larger;
   text-align: center;
   margin: 30px;
   height: 30px;
-  /* position: static;
-  block-size: fit-content; */
+  position: static;
+  block-size: fit-content;
   border-radius: 10px;
+  border-bottom: 3px solid rgb(234, 175, 175);
+  /* box-shadow: 10px 5px 5px rgb(44, 90, 69); */
+  /* box-shadow: 10px -16px teal; */
+  /* box-shadow: 12px 12px 12px 1px rgb(0, 255, 0, 0.2); */
+  box-shadow: 3px 3px red, -0.2em 0 0.4em rgb(16, 228, 48);
+}
+.divs:hover {
+  z-index: 1000;
 }
 
 .crossClickFalse {
@@ -60,7 +79,7 @@ section {
   cursor: pointer;
 }
 .crossClick {
-  border: 2px solid black;
+  max-height: max-content;
   border-radius: 4px;
   padding: 10px;
   font-size: large;
@@ -74,21 +93,17 @@ section {
 
 #ana {
   height: 150px;
-  display: flex;
-  transform: rotate(-10deg);
-  /* bottom: -30px;
-  left: -70px; */
-  /* position: relative; */
+  padding: 30px;
+  transform: rotate(-15deg);
   z-index: 1;
-  padding: 20px;
 }
 #simeon {
-  padding: 30px;
-
   height: 150px;
-  transform: rotate(+10deg);
-  /* top: 377px;
-  left: 60px; */
-  /* position: relative; */
+  padding: 30px;
+  transform: rotate(+15deg);
   z-index: 1;
+}
+#textInputs {
+  width: 100%;
+  height: 75px;
 }

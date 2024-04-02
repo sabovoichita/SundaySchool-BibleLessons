@@ -1,6 +1,6 @@
 [
-  { "content": "Simeon was righteous and devout", "state": "true", "class": "divs" },
-  { "content": "God promised Simeon would see the Saviour", "state": "true", "class": "divs" },
+  { "content": "Simeon was righteous and devout", "state": "true" },
+  { "content": "God promised Simeon would see the Saviour", "state": "true" },
   { "content": "Simeon was very young", "state": "false", "class": "divs" },
   { "content": "The Holy Spirit was on Simeon", "state": "true", "class": "divs" },
   { "content": "Anna was a prophetess", "state": "true", "class": "divs" },
