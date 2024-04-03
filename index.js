@@ -14,13 +14,14 @@ function loadStatements() {
 
 function displayStatements(statements) {
   statements.shuffle();
-
   printStatements(statements);
 
   var divs = document.querySelectorAll(".divs");
-  randomRotateDivs(divs, angleRange);
 
+  randomRotateDivs(divs, angleRange);
   addClickListeners();
+  createScoreButton();
+  createDiferentDomains();
 }
 function printStatements(statements) {
   const statementsMapResult = statements.map(statement => {
@@ -44,7 +45,9 @@ function addClickListeners() {
       }
     });
   });
+}
 
+function createScoreButton() {
   // Add button to memorize score for class crossClickFalse
   const scoreButton = document.createElement("button");
   scoreButton.textContent = "Score";
@@ -52,13 +55,21 @@ function addClickListeners() {
     const correctScore = document.querySelectorAll(".crossClickFalse").length;
     // const wrongScore = document.querySelectorAll(".croosClick").length;
     const totalScore = document.querySelectorAll(".divs").length;
-    alert(`Score is: correct = ${correctScore} out of  ${totalScore}. Not bad!`);
+    alert(`Score is: correct = ${correctScore} out of  ${correctScore}. Not bad!`);
   });
-  $("#buttonArea").appendChild(scoreButton);
+  $("#display-statements").appendChild(scoreButton);
+}
+
+function createDiferentDomains() {
+  const b = document.createElement("button");
+  b.textContent = "content";
+  b.innerHTML = `<select id="selectContent"><option id="levels">Levels</option><option id="1">Lesson 1</option><option id="2">Lesson 2</option><option id="3">Lesson 3</option></select>`;
+  var createDiv = $("#moreContent");
+  createDiv.appendChild(b);
 }
 
 function randomRotateDivs(divs, angleRange) {
-  console.warn("divs", divs);
+  // console.warn("divs", divs);
   divs.forEach(function (div) {
     var rotation = Math.floor(Math.random() * (angleRange[1] - angleRange[0] + 1)) + angleRange[0];
     div.style.transform = "rotate(" + rotation + "deg)";
