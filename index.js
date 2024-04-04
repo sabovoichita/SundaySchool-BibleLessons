@@ -74,11 +74,10 @@ function createDiferentDomains1() {
     fetch(`${lesson}.json`)
       .then(response => response.json())
       .then(statements => {
-        // console.log(statements);
-        displayStatements(statements);
+        printStatements(statements);
       });
   });
-  console.log("here", lessonSelect);
+  // console.log("here", lessonSelect);
 
   document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
 }
