@@ -1,0 +1,12 @@
+[
+  { "content": "Jesus was invited to a wedding in Bethlehem.", "state": false },
+  { "content": "Mary was also at the wedding.", "state": true },
+  { "content": "The wedding lasted for one day.", "state": true },
+  { "content": "There was enough food and drink for everyone.", "state": false },
+  { "content": "Mary told the man to put water in the jars.", "state": true },
+  { "content": "Jesus told the servants to fill five jars with water.", "state": true },
+  { "content": "The servants obeyed Jesus.", "state": true },
+  { "content": "The bride tasted the wine first", "state": true },
+  { "content": "The master of the feast said the miracle wine was the best wine.", "state": true },
+  { "content": "This was the first miracle Jesus’ performed.", "state": true }
+]

@@ -66,7 +66,7 @@ function createDiferentDomains1() {
   lessonSelect.innerHTML = `
     <option value="all">All Lessons</option>
     <option value="Lesson1">Lesson 1</option>
-    <option value="Lesson2">Lesson 2</option>
+    <option value="The Wedding at Cana">The Wedding at Cana</option>
     <option value="Lesson3">Lesson 3</option>
   `;
   lessonSelect.addEventListener("change", function () {
