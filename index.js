@@ -1,4 +1,4 @@
-var angleRange = [-15, 15]; // Adjust as needed
+var angleRange = [-25, 25]; // Adjust as needed
 
 function $(selector) {
   return document.querySelector(selector);
@@ -21,7 +21,7 @@ function displayStatements(statements) {
   randomRotateDivs(divs, angleRange);
   addClickListeners();
   createScoreButton();
-  createDiferentDomains();
+  createDiferentDomains1();
 }
 function printStatements(statements) {
   const statementsMapResult = statements.map(statement => {
@@ -54,18 +54,33 @@ function createScoreButton() {
   scoreButton.addEventListener("click", function () {
     const correctScore = document.querySelectorAll(".crossClickFalse").length;
     // const wrongScore = document.querySelectorAll(".croosClick").length;
-    const totalScore = document.querySelectorAll(".divs").length;
+    // const totalScore = document.querySelectorAll(".divs").length;
     alert(`Score is: correct = ${correctScore} out of  ${correctScore}. Not bad!`);
   });
   $("#display-statements").appendChild(scoreButton);
 }
 
-function createDiferentDomains() {
-  const b = document.createElement("button");
-  b.textContent = "content";
-  b.innerHTML = `<select id="selectContent"><option id="levels">Levels</option><option id="1">Lesson 1</option><option id="2">Lesson 2</option><option id="3">Lesson 3</option></select>`;
-  var createDiv = $("#moreContent");
-  createDiv.appendChild(b);
+function createDiferentDomains1() {
+  const lessonSelect = document.createElement("select");
+  lessonSelect.id = "lessonSelect";
+  lessonSelect.innerHTML = `
+    <option value="all">All Lessons</option>
+    <option value="Lesson1">Lesson 1</option>
+    <option value="Lesson2">Lesson 2</option>
+    <option value="Lesson3">Lesson 3</option>
+  `;
+  lessonSelect.addEventListener("change", function () {
+    const lesson = this.value;
+    fetch(`${lesson}.json`)
+      .then(response => response.json())
+      .then(statements => {
+        // console.log(statements);
+        displayStatements(statements);
+      });
+  });
+  console.log("here", lessonSelect);
+
+  document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
 }
 
 function randomRotateDivs(divs, angleRange) {

@@ -5,6 +5,7 @@ body {
   min-height: 100%;
   margin: 0;
   background-color: rgb(7, 22, 15);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1,
@@ -43,13 +44,13 @@ button {
 }
 
 section {
+  display: flex;
   border-radius: 4px;
   padding: 40px;
   max-height: fit-content;
 }
 
 .divs {
-  width: fit-content - 100px;
   background-color: rgb(25, 28, 25);
   color: white;
   padding: 10px;
@@ -57,7 +58,6 @@ section {
   text-align: center;
   margin: 30px;
   height: 30px;
-  max-width: fit-content;
   position: static;
   block-size: fit-content;
   border-radius: 10px;
@@ -67,12 +67,12 @@ section {
   /* box-shadow: 12px 12px 12px 1px rgb(0, 255, 0, 0.2); */
   box-shadow: 3px 3px red, -0.2em 0 0.4em rgb(16, 228, 48);
 }
-.divs:hover {
+/* .divs:hover {
   z-index: 1000;
   cursor: pointer;
   color: #ffff00;
   position: absolute;
-}
+} */
 
 .crossClickFalse {
   font-size: larger;
@@ -93,18 +93,35 @@ section {
   cursor: pointer;
   /* z-index: -1; */
 }
-
+#wrapAna {
+  padding: 10px;
+  border: 3px solid rgb(18, 230, 71);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  background-color: white;
+  margin: 20px;
+  /* box-shadow: inset 15px 12px 2px 8px rgba(89, 224, 89, 0.2); */
+  box-shadow: inset -0.2em 0 0.9em rgb(16, 228, 48), 2px 2px rgb(209, 47, 47);
+}
 #ana {
   height: 150px;
   padding: 30px;
   transform: rotate(-15deg);
   z-index: 1;
 }
-
+#wrapSimon {
+  padding: 15px;
+  border: 3px solid rgb(52, 52, 61);
+  border-radius: 50%;
+  transform: rotate(+14deg);
+  background-color: white;
+  margin: 20px;
+  box-shadow: inset -0.2em 0 0.9em rgb(16, 228, 48), 2px 2px rgb(209, 47, 47);
+}
 #simeon {
   height: 150px;
   padding: 30px;
-  transform: rotate(+15deg);
+  transform: rotate(+13deg);
   z-index: 1;
 }
 
@@ -120,6 +137,32 @@ section {
   background-color: black;
 }
 #moreContent {
-  display: inline-block;
+  /* display: inline-block; */
   color: white;
+}
+footer {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+#sourceCode {
+}
+
+@media print {
+  textarea {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  .divs {
+    color: black;
+    border: 2px solid black;
+    box-shadow: none;
+  }
+  h1,
+  h2 {
+    color: black;
+  }
 }
