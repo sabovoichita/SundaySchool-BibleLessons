@@ -9,20 +9,19 @@ function loadStatements() {
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
+      createScoreButton();
+      createDiferentDomains1();
     });
 }
 
 function displayStatements(statements) {
   statements.shuffle();
   printStatements(statements);
-
   var statementsContent = document.querySelectorAll(".statements");
-
   randomRotateDivs(statementsContent, angleRange);
   addClickListeners();
-  createScoreButton();
-  createDiferentDomains1();
 }
+
 function printStatements(statements) {
   const statementsMapResult = statements.map(statement => {
     return `<div class="statements" data-state="${statement.state}">${statement.content}
@@ -139,7 +138,7 @@ function createDiferentDomains1() {
     fetch(`${lesson}.json`)
       .then(response => response.json())
       .then(statements => {
-        printStatements(statements);
+        displayStatements(statements);
         switch (lesson) {
           case "Lesson1":
             clearImages();
@@ -236,12 +235,12 @@ var array = document.querySelectorAll(".statements"); // Select statementsConten
 function onStatementsUpdate(e) {
   var value = e.target.value.trim();
   localStorage.setItem("statements", value);
-  var statements = value.split("\n");
+  var statements = value.split(/\s*\n+\s*/);
   var statementsArray = statements.map(statement => {
     return { content: statement, state: true };
   });
   console.info("statement:", statements, statementsArray);
-  printStatements(statementsArray);
+  displayStatements(statementsArray);
 }
 
 function initEvents() {
