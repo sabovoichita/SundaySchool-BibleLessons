@@ -5,7 +5,7 @@ function $(selector) {
 }
 
 function loadStatements() {
-  fetch("statements.json")
+  fetch("Lesson1.json")
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
@@ -78,14 +78,61 @@ function createScoreButton() {
   $("header").appendChild(scoreButton);
 }
 
+// function createDiferentDomains1() {
+//   const lessonSelect = document.createElement("select");
+//   lessonSelect.id = "lessonSelect";
+//   lessonSelect.innerHTML = `
+//     <option value="all">All Lessons</option>
+//     <option value="Lesson1">Ana & Simeon</option>
+//     <option value="Lesson2">The Wedding at Cana</option>
+//     <option value="Lesson3">Lost son</option>
+//   `;
+//   lessonSelect.addEventListener("change", function () {
+//     const lesson = this.value;
+//     fetch(`${lesson}.json`)
+//       .then(response => response.json())
+//       .then(statements => {
+//         printStatements(statements);
+//         if (lesson === "Lesson2") {
+//           addImagesForLesson2();
+//         } else {
+//           clearImagesForLesson2();
+//         }
+//       });
+//   });
+//   console.log("here", lessonSelect);
+
+//   document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
+// }
+
+// function addImagesForLesson2() {
+//   // Create img elements for Cana1.png and Cana2.png
+//   const img1 = document.createElement("img");
+//   img1.src = "images/Lesson2Img1.png";
+//   wrapImg1.appendChild(img1);
+
+//   const img2 = document.createElement("img");
+//   img2.src = "images/Lesson2Img1.png";
+//   wrapImg2.appendChild(img2);
+// }
+
+// function clearImagesForLesson2() {
+//   const wrapImg1 = document.getElementById("wrapImg1");
+//   const wrapImg2 = document.getElementById("wrapImg2");
+
+//   // Remove all child elements from wrapSimon and wrapAna
+//   wrapImg1.innerHTML = "";
+//   wrapImg2.innerHTML = "";
+// }
+
 function createDiferentDomains1() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
     <option value="all">All Lessons</option>
-    <option value="Lesson1">Lesson 1</option>
-    <option value="The Wedding at Cana">The Wedding at Cana</option>
-    <option value="Lesson3">Lesson 3</option>
+    <option value="Lesson1">Ana & Simeon</option>
+    <option value="Lesson2">The Wedding at Cana</option>
+    <option value="Lesson3">Lost son</option>
   `;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
@@ -93,37 +140,71 @@ function createDiferentDomains1() {
       .then(response => response.json())
       .then(statements => {
         printStatements(statements);
-        if (lesson === "The Wedding at Cana") {
-          addImagesForCana();
-        } else {
-          clearImagesForCana();
+        switch (lesson) {
+          case "Lesson1":
+            clearImages();
+            addImagesForLesson1();
+            break;
+          case "Lesson2":
+            clearImages();
+            addImagesForLesson2();
+            break;
+          case "Lesson3":
+            clearImages();
+            addImagesForLesson3();
+            break;
+          default:
+            clearImages();
+            break;
         }
       });
   });
-  console.log("here", lessonSelect);
 
-  document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
+  document.body.insertBefore(lessonSelect, document.getElementById("display-statements"));
 }
 
-function addImagesForCana() {
+function addImagesForLesson1() {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
 
-  // Create img elements for Cana1.png and Cana2.png
   const img1 = document.createElement("img");
-  img1.src = "images/Cana1.png";
+  img1.src = "images/Lesson1Img1.png";
   wrapImg1.appendChild(img1);
 
   const img2 = document.createElement("img");
-  img2.src = "images/Cana2.png";
+  img2.src = "images/Lesson1Img2.png";
   wrapImg2.appendChild(img2);
 }
 
-function clearImagesForCana() {
+function addImagesForLesson2() {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
 
-  // Remove all child elements from wrapSimon and wrapAna
+  const img1 = document.createElement("img");
+  img1.src = "images/Lesson2Img1.png";
+  wrapImg1.appendChild(img1);
+
+  const img2 = document.createElement("img");
+  img2.src = "images/Lesson2Img2.png";
+  wrapImg2.appendChild(img2);
+}
+
+function addImagesForLesson3() {
+  const wrapImg1 = document.getElementById("wrapImg1");
+  const wrapImg2 = document.getElementById("wrapImg2");
+
+  const img1 = document.createElement("img");
+  img1.src = "images/Lesson3Img1.jpeg";
+  wrapImg1.appendChild(img1);
+
+  const img2 = document.createElement("img");
+  img2.src = "images/Lesson3Img2.jpeg";
+  wrapImg2.appendChild(img2);
+}
+
+function clearImages() {
+  const wrapImg1 = document.getElementById("wrapImg1");
+  const wrapImg2 = document.getElementById("wrapImg2");
   wrapImg1.innerHTML = "";
   wrapImg2.innerHTML = "";
 }
