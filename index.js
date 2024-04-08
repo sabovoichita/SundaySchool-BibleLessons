@@ -160,7 +160,7 @@ function onStatementsUpdate(e) {
     return { content: statement, state: true };
   });
   console.info("statement:", statements, statementsArray);
-  displayStatements(statementsArray);
+  printStatements(statementsArray);
 }
 
 function initEvents() {

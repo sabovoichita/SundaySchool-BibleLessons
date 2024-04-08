@@ -1,9 +1,9 @@
 [
-  { "content": "333Simeon was righteous and devout", "state": true },
-  { "content": "333God promised Simeon would see the Saviour", "state": true },
-  { "content": "333Simeon was very young", "state": false },
-  { "content": "333The Holy Spirit was on Simeon", "state": true },
-  { "content": "333Anna was a prophetess", "state": true },
-  { "content": "3333Anna never went to the temple", "state": false },
-  { "content": "333Anna gave thanks to God when she saw Jesus", "state": true }
+  { "content": "The younger son asked his father for his share.", "state": true },
+  { "content": "The younger son went to a distant land.", "state": true },
+  { "content": "The younger son gave the money to the poor.", "state": false },
+  { "content": "The younger son was feeding the pigs as his job.", "state": true },
+  { "content": "The father welcomed him back as his son.", "state": true },
+  { "content": "The father gave the younger son a hat.", "state": false },
+  { "content": "The older brother felt angry when his brother returned.", "state": true }
 ]
