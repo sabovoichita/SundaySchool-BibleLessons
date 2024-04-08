@@ -44,7 +44,7 @@ button {
 }
 
 section {
-  display: flex;
+  display: inline-block;
   border-radius: 4px;
   padding: 40px;
   max-height: fit-content;

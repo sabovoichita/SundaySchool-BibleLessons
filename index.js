@@ -77,53 +77,6 @@ function createScoreButton() {
   $("header").appendChild(scoreButton);
 }
 
-// function createDiferentDomains1() {
-//   const lessonSelect = document.createElement("select");
-//   lessonSelect.id = "lessonSelect";
-//   lessonSelect.innerHTML = `
-//     <option value="all">All Lessons</option>
-//     <option value="Lesson1">Ana & Simeon</option>
-//     <option value="Lesson2">The Wedding at Cana</option>
-//     <option value="Lesson3">Lost son</option>
-//   `;
-//   lessonSelect.addEventListener("change", function () {
-//     const lesson = this.value;
-//     fetch(`${lesson}.json`)
-//       .then(response => response.json())
-//       .then(statements => {
-//         printStatements(statements);
-//         if (lesson === "Lesson2") {
-//           addImagesForLesson2();
-//         } else {
-//           clearImagesForLesson2();
-//         }
-//       });
-//   });
-//   console.log("here", lessonSelect);
-
-//   document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
-// }
-
-// function addImagesForLesson2() {
-//   // Create img elements for Cana1.png and Cana2.png
-//   const img1 = document.createElement("img");
-//   img1.src = "images/Lesson2Img1.png";
-//   wrapImg1.appendChild(img1);
-
-//   const img2 = document.createElement("img");
-//   img2.src = "images/Lesson2Img1.png";
-//   wrapImg2.appendChild(img2);
-// }
-
-// function clearImagesForLesson2() {
-//   const wrapImg1 = document.getElementById("wrapImg1");
-//   const wrapImg2 = document.getElementById("wrapImg2");
-
-//   // Remove all child elements from wrapSimon and wrapAna
-//   wrapImg1.innerHTML = "";
-//   wrapImg2.innerHTML = "";
-// }
-
 function createDiferentDomains1() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
