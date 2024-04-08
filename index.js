@@ -16,24 +16,24 @@ function displayStatements(statements) {
   statements.shuffle();
   printStatements(statements);
 
-  var divs = document.querySelectorAll(".divs");
+  var statementsContent = document.querySelectorAll(".statements");
 
-  randomRotateDivs(divs, angleRange);
+  randomRotateDivs(statementsContent, angleRange);
   addClickListeners();
   createScoreButton();
   createDiferentDomains1();
 }
 function printStatements(statements) {
   const statementsMapResult = statements.map(statement => {
-    return `<div class="divs" data-state="${statement.state}">${statement.content}
+    return `<div class="statements" data-state="${statement.state}">${statement.content}
      <span class="displaySpan">${statement.state}</span></div>`;
   });
   $("#display-statements").innerHTML = statementsMapResult.join("");
 }
 
 function addClickListeners() {
-  const divs = document.querySelectorAll(".divs");
-  divs.forEach(div => {
+  const statementsContent = document.querySelectorAll(".statements");
+  statementsContent.forEach(div => {
     div.addEventListener("click", function () {
       const state = div.getAttribute("data-state");
       if (state === "true") {
@@ -47,6 +47,22 @@ function addClickListeners() {
   });
 }
 
+function randCongrats() {
+  var congrat = [
+    "Awesome!",
+    "Good job!",
+    "Knew you could do it!",
+    "Sweet!",
+    "You got this!",
+    "Again! Again!",
+    "Keep it up!",
+    "Keep going!",
+    "Easy, right?"
+  ];
+  var congrats = Math.floor(Math.random() * congrat.length);
+  return congrat[congrats];
+}
+//modify function as it doesnt appear when I change to lesson nb2
 function createScoreButton() {
   // Add button to memorize score for class crossClickFalse
   const scoreButton = document.createElement("button");
@@ -54,10 +70,12 @@ function createScoreButton() {
   scoreButton.addEventListener("click", function () {
     const correctScore = document.querySelectorAll(".crossClickFalse").length;
     // const wrongScore = document.querySelectorAll(".croosClick").length;
-    // const totalScore = document.querySelectorAll(".divs").length;
-    alert(`Score is: correct = ${correctScore} out of  ${correctScore}. Not bad!`);
+    const totalScore = document.querySelectorAll(".statements").length;
+    const congratMessage = randCongrats();
+
+    alert(`Score is: correct = ${correctScore} out of  ${totalScore} . ${congratMessage} `);
   });
-  $("#display-statements").appendChild(scoreButton);
+  $("header").appendChild(scoreButton);
 }
 
 function createDiferentDomains1() {
@@ -75,16 +93,44 @@ function createDiferentDomains1() {
       .then(response => response.json())
       .then(statements => {
         printStatements(statements);
+        if (lesson === "The Wedding at Cana") {
+          addImagesForCana();
+        } else {
+          clearImagesForCana();
+        }
       });
   });
-  // console.log("here", lessonSelect);
+  console.log("here", lessonSelect);
 
   document.body.insertBefore(lessonSelect, document.getElementById("#lessonSelect"));
 }
 
-function randomRotateDivs(divs, angleRange) {
+function addImagesForCana() {
+  const wrapImg1 = document.getElementById("wrapImg1");
+  const wrapImg2 = document.getElementById("wrapImg2");
+
+  // Create img elements for Cana1.png and Cana2.png
+  const img1 = document.createElement("img");
+  img1.src = "images/Cana1.png";
+  wrapImg1.appendChild(img1);
+
+  const img2 = document.createElement("img");
+  img2.src = "images/Cana2.png";
+  wrapImg2.appendChild(img2);
+}
+
+function clearImagesForCana() {
+  const wrapImg1 = document.getElementById("wrapImg1");
+  const wrapImg2 = document.getElementById("wrapImg2");
+
+  // Remove all child elements from wrapSimon and wrapAna
+  wrapImg1.innerHTML = "";
+  wrapImg2.innerHTML = "";
+}
+
+function randomRotateDivs(statementsContent, angleRange) {
   // console.warn("divs", divs);
-  divs.forEach(function (div) {
+  statementsContent.forEach(function (div) {
     var rotation = Math.floor(Math.random() * (angleRange[1] - angleRange[0] + 1)) + angleRange[0];
     div.style.transform = "rotate(" + rotation + "deg)";
   });
@@ -104,7 +150,7 @@ Array.prototype.shuffle = function () {
   return this;
 };
 
-var array = document.querySelectorAll(".cross"); // Select divs by class
+var array = document.querySelectorAll(".statements"); // Select statementsContent by class statements
 
 function onStatementsUpdate(e) {
   var value = e.target.value.trim();
