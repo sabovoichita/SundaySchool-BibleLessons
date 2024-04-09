@@ -2,16 +2,23 @@ html {
   height: 100%;
 }
 body {
-  min-height: 100%;
+  max-height: 250px;
   margin: 0;
   background-color: rgb(7, 22, 15);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 1000px;
 }
 
 h1,
 h2 {
   text-align: center;
   color: aliceblue;
+  margin: 20px;
+}
+hr {
+  margin-right: 25px;
+  margin-left: 25px;
+  height: 3px;
 }
 
 #buttonArea button {
@@ -24,14 +31,25 @@ h2 {
 }
 
 header {
-  display: flex;
+  display: block;
   flex-direction: row;
   align-items: center;
 }
 /* To Design Denisa */
+#titleArea {
+  top: 0;
+}
+
+#wrapImgs {
+  display: flex;
+  flex-direction: row;
+}
 
 .displaySpan {
   display: none;
+}
+#content {
+  color: white;
 }
 
 button {
@@ -44,58 +62,67 @@ button {
 }
 
 section {
-  display: inline-block;
+  /* display: inline-block; */
+  display: grid;
+  grid-template-columns: auto auto auto;
   border-radius: 4px;
-  padding: 40px;
-  max-height: fit-content;
+  padding: 20px;
+  max-height: 816px;
+  width: 100%;
 }
 
 .statements {
+  width: 50%;
   background-color: rgb(25, 28, 25);
   color: white;
   padding: 10px;
-  font-size: larger;
+  font-size: 1rem;
   text-align: center;
   margin: 30px;
   height: 30px;
   position: static;
   block-size: fit-content;
   border-radius: 10px;
-  border-bottom: 3px solid rgb(234, 175, 175);
+  border-bottom: 3px solid rgb(175, 234, 180);
   /* box-shadow: 10px 5px 5px rgb(44, 90, 69); */
   /* box-shadow: 10px -16px teal; */
   /* box-shadow: 12px 12px 12px 1px rgb(0, 255, 0, 0.2); */
-  box-shadow: 3px 3px red, -0.2em 0 0.4em rgb(16, 228, 48);
+  box-shadow: 3px 3px rgb(196, 6, 139), -0.2em 0 0.4em rgb(16, 228, 48);
 }
-/* .divs:hover {
-  z-index: 1000;
+
+.statements:hover {
+  z-index: 10000;
   cursor: pointer;
   color: #ffff00;
-  position: absolute;
-} */
+  background-color: green;
+  block-size: fit-content;
+  position: static;
+  width: 50%;
+}
 
 .crossClickFalse {
   font-size: larger;
   text-align: center;
-  font-style: oblique;
-  text-decoration: line-through;
+  /* font-style: oblique; */
+  /* text-decoration: line-through; */
 }
 
 .crossClick {
-  max-height: max-content;
-  border-radius: 4px;
-  padding: 10px;
+  /* max-height: max-content; */
+  /* border-radius: 4px; */
+  /* padding: 10px; */
   font-size: larger;
   text-align: center;
-  margin: 10px;
-  font-style: italic;
-  color: red;
-  cursor: pointer;
+  /* margin: 10px; */
+  /* font-style: italic; */
+  /* color: red; */
+  /* cursor: grab; */
   /* z-index: -1; */
 }
 img {
-  height: 150px;
-  padding: 30px;
+  height: 100px;
+  padding: 0px;
+  /* border: 3px solid blue; */
 }
 
 img #wrapImg1 {
@@ -108,13 +135,16 @@ img #wrapImg1 {
   /* box-shadow: inset 15px 12px 2px 8px rgba(89, 224, 89, 0.2); */
   box-shadow: inset -0.2em 0 0.9em rgb(16, 228, 48), 2px 2px rgb(209, 47, 47);
 }
-#Lesson1Img1 {
+
+Lesson1Img1 {
   height: 150px;
   padding: 30px;
   transform: rotate(-15deg);
   z-index: 1;
 }
+
 img #wrapImg2 {
+  max-width: 200px;
   padding: 15px;
   border: 3px solid rgb(52, 52, 61);
   border-radius: 50%;
@@ -128,6 +158,11 @@ img #wrapImg2 {
   padding: 30px;
   transform: rotate(+13deg);
   z-index: 1;
+}
+
+#lessonSelect {
+  padding: 5px;
+  margin-left: 15px;
 }
 
 #textInputs {
@@ -162,4 +197,96 @@ img #wrapImg2 {
   h2 {
     color: black;
   }
+}
+
+#custom-prompt-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#custom-prompt {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+#custom-prompt-input {
+  flex: 1;
+  font-size: 1.2em;
+  padding: 2px 5px;
+}
+#custom-prompt label {
+  font-weight: bold;
+  font-size: 1.2em;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+#custom-prompt .tbar {
+  margin-top: 10px;
+}
+#custom-prompt button {
+  margin: 1px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(245, 229, 229);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+section #scoreButton {
+  position: fixed;
+  top: 20px;
+  right: 50px;
+}
+
+.progress__scroll {
+  position: fixed;
+  bottom: 20px;
+  right: 4px;
+  height: 70px;
+  width: 70px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 10 10px rgba(0, 0, 0.2);
+  cursor: pointer;
+}
+
+.progress__scroll--value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100% - 15px);
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: rgb(3, 3, 3);
 }

@@ -1,4 +1,4 @@
-var angleRange = [-25, 25]; // Adjust as needed
+var angleRange = [-45, 45]; // Adjust as needed
 
 function $(selector) {
   return document.querySelector(selector);
@@ -9,7 +9,8 @@ function loadStatements() {
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
-      createScoreButton();
+      // simplePrompt();
+      createScoreButton1();
       createDiferentDomains1();
     });
 }
@@ -61,20 +62,39 @@ function randCongrats() {
   var congrats = Math.floor(Math.random() * congrat.length);
   return congrat[congrats];
 }
-//modify function as it doesnt appear when I change to lesson nb2
-function createScoreButton() {
-  // Add button to memorize score for class crossClickFalse
+
+function createScoreButton1() {
   const scoreButton = document.createElement("button");
+  scoreButton.id = "scoreButton";
   scoreButton.textContent = "Score";
   scoreButton.addEventListener("click", function () {
     const correctScore = document.querySelectorAll(".crossClickFalse").length;
-    // const wrongScore = document.querySelectorAll(".croosClick").length;
-    const totalScore = document.querySelectorAll(".statements").length;
+    // const totalScore = document.querySelectorAll(".statements").length;
     const congratMessage = randCongrats();
+    const placeholder = "Enter your name";
 
-    alert(`Score is: correct = ${correctScore} out of  ${totalScore} . ${congratMessage} `);
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+
+    const content = document.createElement("div");
+    content.id = "overlay-content";
+    content.innerHTML = `
+    <form id="custom-prompt">
+      <label for="custom-prompt-input">${congratMessage}</label>
+      <div class="tbar">Correct Score is: ${correctScore}
+        <input type="text" id="custom-prompt-input" placeholder="${placeholder}" required>
+        <button type="submit">Close</button>
+      </div>
+    </form>`;
+    overlay.appendChild(content);
+    document.body.appendChild(overlay);
+
+    // Close overlay when close button is clicked
+    document.getElementById("close-overlay").addEventListener("click", function () {
+      document.body.removeChild(overlay);
+    });
   });
-  $("header").appendChild(scoreButton);
+  $("section").appendChild(scoreButton);
 }
 
 function createDiferentDomains1() {
@@ -82,9 +102,16 @@ function createDiferentDomains1() {
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
     <option value="all">All Lessons</option>
-    <option value="Lesson1">Ana & Simeon</option>
-    <option value="Lesson2">The Wedding at Cana</option>
+    <optgroup label="Teens">
+      <option value="Lesson1">Simeon & Anna</option>
+    </optgroup>
+    <optgroup label="Preteens">
+      <option value="Lesson2">Wedding at Cana</option>
+      <option value="Lesson4">Fisher of Man</option>
+    </optgroup>
+    <optgroup label="5+">
     <option value="Lesson3">Lost son</option>
+  </optgroup>
   `;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
@@ -93,6 +120,10 @@ function createDiferentDomains1() {
       .then(statements => {
         displayStatements(statements);
         switch (lesson) {
+          case "all":
+            clearImages();
+            onLoad();
+            break;
           case "Lesson1":
             clearImages();
             addImagesForLesson1();
@@ -105,10 +136,15 @@ function createDiferentDomains1() {
             clearImages();
             addImagesForLesson3();
             break;
+          case "Lesson4":
+            clearImages();
+            addImagesForLesson4();
+            break;
           default:
             clearImages();
             break;
         }
+        createScoreButton1();
       });
   });
 
@@ -154,6 +190,18 @@ function addImagesForLesson3() {
   wrapImg2.appendChild(img2);
 }
 
+function addImagesForLesson4() {
+  const wrapImg1 = document.getElementById("wrapImg1");
+  const wrapImg2 = document.getElementById("wrapImg2");
+
+  const img1 = document.createElement("img");
+  img1.src = "images/Lesson4Img1.png";
+  wrapImg1.appendChild(img1);
+
+  const img2 = document.createElement("img");
+  img2.src = "images/Lesson4Img2.png";
+  wrapImg2.appendChild(img2);
+}
 function clearImages() {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
@@ -190,7 +238,8 @@ function onStatementsUpdate(e) {
   localStorage.setItem("statements", value);
   var statements = value.split(/\s*\n+\s*/);
   var statementsArray = statements.map(statement => {
-    return { content: statement, state: true };
+    const state = statement.trim().startsWith("T") ? false : true;
+    return { content: statement, state: state };
   });
   console.info("statement:", statements, statementsArray);
   displayStatements(statementsArray);
@@ -200,6 +249,28 @@ function initEvents() {
   $("#textInputs").value = localStorage.getItem("statements");
   $("#textInputs").addEventListener("input", onStatementsUpdate);
 }
+
+const calcScrollValue = () => {
+  const scrollProgress = document.querySelector(".progress__scroll");
+  const pos = document.documentElement.scrollTop;
+  const calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  const scrollValue = Math.round((pos * 100) / calcHeight);
+  if (pos > 100) {
+    scrollProgress.style.display = "flex";
+  } else {
+    scrollProgress.style.display = "none";
+  }
+
+  scrollProgress.addEventListener("click", () => {
+    document.documentElement.scrollTop = 0;
+  });
+
+  scrollProgress.style.background = `conic-gradient(#f0f ${scrollValue}%, #ffffff ${scrollValue}%)`;
+};
+
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
 
 loadStatements();
 initEvents();

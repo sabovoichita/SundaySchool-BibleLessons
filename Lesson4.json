@@ -1,0 +1,9 @@
+[
+  { "content": "Simon and Andrew worked as fishermen.", "state": true },
+  { "content": "After a long night working, they had caught nothing.", "state": true },
+  { "content": "Jesus stepped into Simon's boat to relax.", "state": false },
+  { "content": "At Jesus' word the nets were full of fish.", "state": true },
+  { "content": "James and John came in their boat to help.", "state": true },
+  { "content": "When Simon saw the miracle he ran away.", "state": false },
+  { "content": "Simon, Andrew, James and John left everything to follow Jesus.", "state": true }
+]

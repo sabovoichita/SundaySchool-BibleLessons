@@ -8,24 +8,32 @@
   </head>
   <body>
     <header>
-      <hr />
-      <div id="wrapImg1"><img id="ana" src="images/Lesson1Img1.png" alt="" /></div>
-      <div>
+      <div id="titleArea">
         <h1>Sunday School Games 📚</h1>
         <hr />
-        <h2>Cross out false statements</h2>
-        <hr />
+        <h2>Cross-out false statements❌</h2>
       </div>
-      <div id="wrapImg2">
-        <img id="simeon" src="images/Lesson1Img2.png" alt="" />
+      <!-- <div id="content">
+        Please choose from the list one lesson and click on the false statements. At the end, press the Score button to
+        end game.
+      </div> -->
+      <div id="wrapImgs">
+        <div id="wrapImg1"></div>
+        <div style="width: 500px"></div>
+        <div id="wrapImg2"></div>
       </div>
+
       <!-- <div><button id="start" data-start="start" type="start">Start</button></div> -->
     </header>
-
+    <div class="progress__scroll">
+      <span class="progress__scroll--value">&#x1F815;</span>
+    </div>
     <section id="display-statements"></section>
     <!-- <button id="reset" data-reset="reset" type="reset">Reset</button> -->
-    <textarea name="statements" id="textInputs" cols="30" rows="10" placeholder="White your text here"></textarea>
 
+    <footer>
+      <textarea name="statements" id="textInputs" cols="30" rows="10" placeholder="Write your text here"></textarea>
+    </footer>
     <script src="index.js"></script>
   </body>
 </html>
