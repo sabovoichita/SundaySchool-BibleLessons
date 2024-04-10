@@ -10,8 +10,8 @@ function loadStatements() {
     .then(statements => {
       displayStatements(statements);
       // simplePrompt();
-      createScoreButton1();
-      createDiferentDomains1();
+      createScoreButton();
+      createDiferentDomains();
     });
 }
 
@@ -63,7 +63,7 @@ function randCongrats() {
   return congrat[congrats];
 }
 
-function createScoreButton1() {
+function createScoreButton() {
   const scoreButton = document.createElement("button");
   scoreButton.id = "scoreButton";
   scoreButton.textContent = "Score";
@@ -97,7 +97,7 @@ function createScoreButton1() {
   $("section").appendChild(scoreButton);
 }
 
-function createDiferentDomains1() {
+function createDiferentDomains() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
@@ -117,8 +117,6 @@ function createDiferentDomains1() {
     <option value="Lesson3">Lost son</option>
     <option value="Lesson5">Sermon on the mount</option>
     <option value="Lesson8">The Lepers</option>
-
-
   </optgroup>
   `;
   lessonSelect.addEventListener("change", function () {
@@ -175,7 +173,7 @@ function createDiferentDomains1() {
             clearImages();
             break;
         }
-        createScoreButton1();
+        createScoreButton();
       });
   });
 
@@ -235,6 +233,7 @@ function onStatementsUpdate(e) {
   });
   console.info("statement:", statements, statementsArray);
   displayStatements(statementsArray);
+  createScoreButton();
 }
 
 function initEvents() {

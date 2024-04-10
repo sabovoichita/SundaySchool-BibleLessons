@@ -37,7 +37,7 @@ header {
   flex-direction: row;
   align-items: center;
 }
-/* To Design Denisa */
+
 #titleArea {
   top: 0;
 }
@@ -111,21 +111,11 @@ section {
 .crossClickFalse {
   font-size: larger;
   text-align: center;
-  /* font-style: oblique; */
-  /* text-decoration: line-through; */
 }
 
 .crossClick {
-  /* max-height: max-content; */
-  /* border-radius: 4px; */
-  /* padding: 10px; */
   font-size: larger;
   text-align: center;
-  /* margin: 10px; */
-  /* font-style: italic; */
-  /* color: red; */
-  /* cursor: grab; */
-  /* z-index: -1; */
 }
 img {
   height: 100px;
@@ -166,17 +156,6 @@ Lesson4Img1 {
 #textInputs {
   width: 100%;
   height: 75px;
-}
-
-#moreContent button {
-  border: 0;
-  margin: 0;
-  border-radius: 3px;
-  background-color: black;
-}
-#moreContent {
-  /* display: inline-block; */
-  color: white;
 }
 
 section #scoreButton {
@@ -282,9 +261,18 @@ section #scoreButton {
     color: black;
     border: 2px solid black;
     box-shadow: none;
+    margin: 30px;
   }
   h1,
   h2 {
     color: black;
+  }
+
+  button {
+    display: none;
+  }
+  section {
+    display: block;
+    align-content: space-between;
   }
 }
