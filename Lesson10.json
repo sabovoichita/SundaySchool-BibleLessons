@@ -1,0 +1,9 @@
+[
+  { "content": "The Roman Centurion was a soldier.", "state": true },
+  { "content": "He had a sick servant.", "state": true },
+  { "content": "He sent the sick servant to see Jesus.", "state": false },
+  { "content": "The Roman Centurion did believe in miracles.", "state": true },
+  { "content": "He had commanded other men.", "state": true },
+  { "content": "He made Jesus come to his house.", "state": false },
+  { "content": "The Roman Centurion had faith in Jesus.", "state": true }
+]

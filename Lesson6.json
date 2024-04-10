@@ -1,0 +1,9 @@
+[
+  { "content": "Jesus taught His disciples in parables.", "state": true },
+  { "content": "The widow asked for justice.", "state": true },
+  { "content": "Jesus told His followers to pray seven times and then give up.", "state": false },
+  { "content": "The judge didn't want to help..", "state": true },
+  { "content": "Eventually, the unjust judge helped the widow.", "state": true },
+  { "content": "The judge feared God.", "state": false },
+  { "content": "Jesus said, God will not be slowing in doing what is right..", "state": true }
+]

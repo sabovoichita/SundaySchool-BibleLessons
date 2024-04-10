@@ -1,0 +1,9 @@
+[
+  { "content": "Jesus asked a question to a religious law expert.", "state": true },
+  { "content": "The man was walking between Jerusalem and Jericho.", "state": true },
+  { "content": "The first person to see the man in need was a samaritan.", "state": false },
+  { "content": "The Good Samaritan used oil to treat the man.", "state": true },
+  { "content": "The Good Samaritan place the man an his own animal.", "state": true },
+  { "content": "The Good Samaritan took the man in need to a hospital.", "state": false },
+  { "content": "Jesus said at the end of parable to go and do likewise.", "state": true }
+]

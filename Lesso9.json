@@ -1,0 +1,9 @@
+[
+  { "content": "Mary and Martha were sisters.", "state": true },
+  { "content": "Mary sat at Jesus' feet.", "state": true },
+  { "content": "Mary and Martha came to visit Jesus in His home.", "state": false },
+  { "content": "Mary wasn't distracted by all the prepara�ons.", "state": true },
+  { "content": "Martha was angry with her sister for not helping.", "state": true },
+  { "content": "Martha didn't ask Jesus to tell Mary to help her.", "state": false },
+  { "content": "Jesus said that Mary chose the better thing.", "state": true }
+]

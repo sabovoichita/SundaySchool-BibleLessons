@@ -1,0 +1,9 @@
+[
+  { "content": "Ten Lepers came to ask Jesus for mercy.", "state": true },
+  { "content": "Leprosy is a skin disease.", "state": true },
+  { "content": "Lepers had to walk around blowing a trumpet.", "state": false },
+  { "content": "Lepers had to live outside the city.", "state": true },
+  { "content": "Jesus touched the Lepers and they were healed.", "state": true },
+  { "content": "Only one of the Lepers asked Jesus for help.", "state": false },
+  { "content": "The Samaritan Leper praised God with a loud voice.", "state": true }
+]

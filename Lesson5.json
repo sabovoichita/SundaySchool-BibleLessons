@@ -1,0 +1,12 @@
+[
+  { "content": "Blessed are the poor in spirit, for theirs is the kingdom of heaven.", "state": true },
+  { "content": "Blessed are those who mourn, for they will be comforted.", "state": true },
+  { "content": "Blessed are the merciful, for they will be shown no mercy.", "state": false },
+  { "content": "Blessed are the pure in heart, for they will see God.", "state": true },
+  { "content": "Blessed are the peacemakers, for they will be called children of God.", "state": true },
+  {
+    "content": "Blessed are those who are persecuted because of righteousness, for theirs is the Earth.",
+    "state": false
+  },
+  { "content": "Blessed are those who hunger and thirst for righteousness, for they will be filled..", "state": true }
+]
