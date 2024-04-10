@@ -1,0 +1,9 @@
+[
+  { "content": "Welcome to our game😀!", "state": true },
+  { "content": "Do you want to play?😎", "state": true },
+  { "content": "Why don't you choose a lesson?🧾", "state": false },
+  { "content": "At the end of the game press Score🏁", "state": true },
+  { "content": "Do you enjoy the game?👀", "state": true },
+  { "content": "Do you want to have another go?", "state": false },
+  { "content": "Thanks for trying!", "state": true }
+]

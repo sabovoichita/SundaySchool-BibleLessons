@@ -5,7 +5,7 @@ function $(selector) {
 }
 
 function loadStatements() {
-  fetch("Lesson1.json")
+  fetch("Lesson0.json")
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
@@ -101,7 +101,7 @@ function createDiferentDomains1() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
-    <option value="all">All Lessons</option>
+    <option value="Lesson0">All Lessons</option>
     <optgroup label="Teens">
       <option value="Lesson1">Simeon & Anna</option>
       <option value="Lesson6">The Parable of the Persistent Widow</option>
@@ -128,9 +128,8 @@ function createDiferentDomains1() {
       .then(statements => {
         displayStatements(statements);
         switch (lesson) {
-          case "all":
+          case "Lesson0":
             clearImages();
-            onLoad();
             break;
           case "Lesson1":
             clearImages();
