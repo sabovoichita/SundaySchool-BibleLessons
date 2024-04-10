@@ -1,5 +1,7 @@
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
   max-height: 250px;
@@ -59,6 +61,7 @@ button {
   border-radius: 15px;
   font-size: larger;
   z-index: 500;
+  padding: 5px;
 }
 
 section {
@@ -83,7 +86,9 @@ section {
   position: static;
   block-size: fit-content;
   border-radius: 10px;
+  border-left: 3px solid rgb(175, 234, 180);
   border-bottom: 3px solid rgb(175, 234, 180);
+
   /* box-shadow: 10px 5px 5px rgb(44, 90, 69); */
   /* box-shadow: 10px -16px teal; */
   /* box-shadow: 12px 12px 12px 1px rgb(0, 255, 0, 0.2); */
@@ -93,11 +98,14 @@ section {
 .statements:hover {
   z-index: 10000;
   cursor: pointer;
-  color: #ffff00;
+  color: #0e0e0d;
   background-color: green;
   block-size: fit-content;
   position: static;
   width: 50%;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: red;
 }
 
 .crossClickFalse {
@@ -122,41 +130,31 @@ section {
 img {
   height: 100px;
   padding: 0px;
-  /* border: 3px solid blue; */
+  border: 3px solid white;
 }
 
-img #wrapImg1 {
-  padding: 10px;
-  border: 3px solid rgb(18, 230, 71);
+#wrapImg1 img {
+  aspect-ratio: 1;
+  width: 300px;
+  background-color: black;
   border-radius: 50%;
-  transform: rotate(-15deg);
-  background-color: white;
-  margin: 20px;
-  /* box-shadow: inset 15px 12px 2px 8px rgba(89, 224, 89, 0.2); */
-  box-shadow: inset -0.2em 0 0.9em rgb(16, 228, 48), 2px 2px rgb(209, 47, 47);
+  transform: rotate(-5deg);
+}
+#wrapImg2 img {
+  aspect-ratio: 1;
+  width: 300px;
+  background-color: black;
+  border-radius: 50%;
+  transform: rotate(+5deg);
 }
 
-Lesson1Img1 {
+Lesson1Img1,
+Lesson2Img1,
+Lesson3Img1,
+Lesson4Img1 {
   height: 150px;
   padding: 30px;
   transform: rotate(-15deg);
-  z-index: 1;
-}
-
-img #wrapImg2 {
-  max-width: 200px;
-  padding: 15px;
-  border: 3px solid rgb(52, 52, 61);
-  border-radius: 50%;
-  transform: rotate(+14deg);
-  background-color: white;
-  margin: 20px;
-  box-shadow: inset -0.2em 0 0.9em rgb(16, 228, 48), 2px 2px rgb(209, 47, 47);
-}
-#Lesson1Img2 {
-  height: 150px;
-  padding: 30px;
-  transform: rotate(+13deg);
   z-index: 1;
 }
 
@@ -181,22 +179,10 @@ img #wrapImg2 {
   color: white;
 }
 
-@media print {
-  textarea {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
-  .statements {
-    color: black;
-    border: 2px solid black;
-    box-shadow: none;
-  }
-  h1,
-  h2 {
-    color: black;
-  }
+section #scoreButton {
+  position: fixed;
+  top: 20px;
+  right: 50px;
 }
 
 #custom-prompt-container {
@@ -257,12 +243,6 @@ img #wrapImg2 {
   border-radius: 5px;
 }
 
-section #scoreButton {
-  position: fixed;
-  top: 20px;
-  right: 50px;
-}
-
 .progress__scroll {
   position: fixed;
   bottom: 20px;
@@ -289,4 +269,22 @@ section #scoreButton {
   align-items: center;
   font-size: 35px;
   color: rgb(3, 3, 3);
+}
+
+@media print {
+  textarea {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  .statements {
+    color: black;
+    border: 2px solid black;
+    box-shadow: none;
+  }
+  h1,
+  h2 {
+    color: black;
+  }
 }
