@@ -104,14 +104,20 @@ function createDiferentDomains1() {
     <option value="all">All Lessons</option>
     <optgroup label="Teens">
       <option value="Lesson1">Simeon & Anna</option>
+      <option value="Lesson6">The Parable of the Persistent Widow</option>
+      <option value="Lesson9">Mary and Martha</option>
     </optgroup>
     <optgroup label="Preteens">
       <option value="Lesson2">Wedding at Cana</option>
       <option value="Lesson4">Fisher of Man</option>
+      <option value="Lesson7">Good Samaritan</option>
+      <option value="Lesson10">Roman Centurion</option>
     </optgroup>
     <optgroup label="5+">
     <option value="Lesson3">Lost son</option>
-    <option value="Lesson5">L5name</option>
+    <option value="Lesson5">Sermon on the mount</option>
+    <option value="Lesson8">The Lepers</option>
+
 
   </optgroup>
   `;
@@ -145,6 +151,26 @@ function createDiferentDomains1() {
           case "Lesson5":
             clearImages();
             addImagesForLessons(5);
+            break;
+          case "Lesson6":
+            clearImages();
+            addImagesForLessons(6);
+            break;
+          case "Lesson7":
+            clearImages();
+            addImagesForLessons(7);
+            break;
+          case "Lesson8":
+            clearImages();
+            addImagesForLessons(8);
+            break;
+          case "Lesson9":
+            clearImages();
+            addImagesForLessons(9);
+            break;
+          case "Lesson10":
+            clearImages();
+            addImagesForLessons(10);
             break;
           default:
             clearImages();
