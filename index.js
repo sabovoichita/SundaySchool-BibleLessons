@@ -111,6 +111,8 @@ function createDiferentDomains1() {
     </optgroup>
     <optgroup label="5+">
     <option value="Lesson3">Lost son</option>
+    <option value="Lesson5">L5name</option>
+
   </optgroup>
   `;
   lessonSelect.addEventListener("change", function () {
@@ -126,19 +128,23 @@ function createDiferentDomains1() {
             break;
           case "Lesson1":
             clearImages();
-            addImagesForLesson1();
+            addImagesForLessons(1);
             break;
           case "Lesson2":
             clearImages();
-            addImagesForLesson2();
+            addImagesForLessons(2);
             break;
           case "Lesson3":
             clearImages();
-            addImagesForLesson3();
+            addImagesForLessons(3);
             break;
           case "Lesson4":
             clearImages();
-            addImagesForLesson4();
+            addImagesForLessons(4);
+            break;
+          case "Lesson5":
+            clearImages();
+            addImagesForLessons(5);
             break;
           default:
             clearImages();
@@ -150,58 +156,19 @@ function createDiferentDomains1() {
 
   document.body.insertBefore(lessonSelect, document.getElementById("display-statements"));
 }
-
-function addImagesForLesson1() {
+function addImagesForLessons(lessonNumber) {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
 
   const img1 = document.createElement("img");
-  img1.src = "images/Lesson1Img1.png";
+  img1.src = `images/Lesson${lessonNumber}Img1.png`;
   wrapImg1.appendChild(img1);
 
   const img2 = document.createElement("img");
-  img2.src = "images/Lesson1Img2.png";
+  img2.src = `images/Lesson${lessonNumber}Img2.png`;
   wrapImg2.appendChild(img2);
 }
 
-function addImagesForLesson2() {
-  const wrapImg1 = document.getElementById("wrapImg1");
-  const wrapImg2 = document.getElementById("wrapImg2");
-
-  const img1 = document.createElement("img");
-  img1.src = "images/Lesson2Img1.png";
-  wrapImg1.appendChild(img1);
-
-  const img2 = document.createElement("img");
-  img2.src = "images/Lesson2Img2.png";
-  wrapImg2.appendChild(img2);
-}
-
-function addImagesForLesson3() {
-  const wrapImg1 = document.getElementById("wrapImg1");
-  const wrapImg2 = document.getElementById("wrapImg2");
-
-  const img1 = document.createElement("img");
-  img1.src = "images/Lesson3Img1.jpeg";
-  wrapImg1.appendChild(img1);
-
-  const img2 = document.createElement("img");
-  img2.src = "images/Lesson3Img2.jpeg";
-  wrapImg2.appendChild(img2);
-}
-
-function addImagesForLesson4() {
-  const wrapImg1 = document.getElementById("wrapImg1");
-  const wrapImg2 = document.getElementById("wrapImg2");
-
-  const img1 = document.createElement("img");
-  img1.src = "images/Lesson4Img1.png";
-  wrapImg1.appendChild(img1);
-
-  const img2 = document.createElement("img");
-  img2.src = "images/Lesson4Img2.png";
-  wrapImg2.appendChild(img2);
-}
 function clearImages() {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
