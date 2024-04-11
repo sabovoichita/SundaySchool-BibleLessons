@@ -67,7 +67,12 @@ button {
 section {
   /* display: inline-block; */
   display: grid;
-  grid-template-columns: auto auto auto;
+  align-content: center;
+  justify-content: end;
+  align-items: baseline;
+  justify-items: stretch;
+  grid-template-columns: auto auto;
+  gap: 10px;
   border-radius: 4px;
   padding: 20px;
   max-height: 816px;
@@ -75,7 +80,7 @@ section {
 }
 
 .statements {
-  width: 50%;
+  width: 80%;
   background-color: rgb(25, 28, 25);
   color: white;
   padding: 10px;
@@ -151,17 +156,32 @@ Lesson4Img1 {
 #lessonSelect {
   padding: 5px;
   margin-left: 15px;
+  border-left: 3px solid rgb(175, 234, 180);
+  border-bottom: 3px solid rgb(175, 234, 180);
+  background-color: rgb(25, 28, 25);
+  color: white;
+  box-shadow: 3px 3px rgb(196, 6, 139), -0.2em 0 0.4em rgb(16, 228, 48);
 }
 
 #textInputs {
   width: 100%;
   height: 75px;
+  border-left: 3px solid rgb(175, 234, 180);
+  border-bottom: 3px solid rgb(175, 234, 180);
+  background-color: rgb(25, 28, 25);
+  color: white;
+  box-shadow: 3px 3px rgb(196, 6, 139), -0.2em 0 0.4em rgb(16, 228, 48);
 }
 
 section #scoreButton {
   position: fixed;
   top: 20px;
   right: 50px;
+  border-left: 3px solid rgb(175, 234, 180);
+  border-bottom: 3px solid rgb(175, 234, 180);
+  background-color: rgb(25, 28, 25);
+  color: white;
+  box-shadow: 3px 3px rgb(196, 6, 139), -0.2em 0 0.4em rgb(16, 228, 48);
 }
 
 #custom-prompt-container {
@@ -174,6 +194,7 @@ section #scoreButton {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 #custom-prompt {
   background-color: white;
