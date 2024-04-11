@@ -1,4 +1,4 @@
-var angleRange = [-45, 45]; // Adjust as needed
+var angleRange = [-15, 15];
 
 function $(selector) {
   return document.querySelector(selector);
@@ -9,7 +9,6 @@ function loadStatements() {
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
-      // simplePrompt();
       createScoreButton();
       createDiferentDomains();
     });
@@ -133,9 +132,9 @@ function createDiferentDomains() {
         createScoreButton();
       });
   });
-
   document.body.insertBefore(lessonSelect, document.getElementById("display-statements"));
 }
+
 function addImagesForLessons(lessonNumber) {
   const wrapImg1 = document.getElementById("wrapImg1");
   const wrapImg2 = document.getElementById("wrapImg2");
@@ -177,7 +176,6 @@ Array.prototype.shuffle = function () {
   }
   return this;
 };
-
 var array = document.querySelectorAll(".statements"); // Select statementsContent by class statements
 
 function onStatementsUpdate(e) {
@@ -202,18 +200,15 @@ const calcScrollValue = () => {
   const scrollProgress = document.querySelector(".progress__scroll");
   const pos = document.documentElement.scrollTop;
   const calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
   const scrollValue = Math.round((pos * 100) / calcHeight);
   if (pos > 100) {
     scrollProgress.style.display = "flex";
   } else {
     scrollProgress.style.display = "none";
   }
-
   scrollProgress.addEventListener("click", () => {
     document.documentElement.scrollTop = 0;
   });
-
   scrollProgress.style.background = `conic-gradient(#f0f ${scrollValue}%, #ffffff ${scrollValue}%)`;
 };
 
