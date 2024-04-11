@@ -125,53 +125,10 @@ function createDiferentDomains() {
       .then(response => response.json())
       .then(statements => {
         displayStatements(statements);
-        switch (lesson) {
-          case "Lesson0":
-            clearImages();
-            break;
-          case "Lesson1":
-            clearImages();
-            addImagesForLessons(1);
-            break;
-          case "Lesson2":
-            clearImages();
-            addImagesForLessons(2);
-            break;
-          case "Lesson3":
-            clearImages();
-            addImagesForLessons(3);
-            break;
-          case "Lesson4":
-            clearImages();
-            addImagesForLessons(4);
-            break;
-          case "Lesson5":
-            clearImages();
-            addImagesForLessons(5);
-            break;
-          case "Lesson6":
-            clearImages();
-            addImagesForLessons(6);
-            break;
-          case "Lesson7":
-            clearImages();
-            addImagesForLessons(7);
-            break;
-          case "Lesson8":
-            clearImages();
-            addImagesForLessons(8);
-            break;
-          case "Lesson9":
-            clearImages();
-            addImagesForLessons(9);
-            break;
-          case "Lesson10":
-            clearImages();
-            addImagesForLessons(10);
-            break;
-          default:
-            clearImages();
-            break;
+        clearImages();
+        const lessonNumber = parseInt(lesson.replace("Lesson", ""));
+        if (!isNaN(lessonNumber)) {
+          addImagesForLessons(lessonNumber);
         }
         createScoreButton();
       });
