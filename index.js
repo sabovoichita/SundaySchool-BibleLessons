@@ -11,6 +11,7 @@ function loadStatements() {
       displayStatements(statements);
       createScoreButton();
       createDiferentDomains();
+      createShuffleButton();
     });
 }
 
@@ -93,7 +94,7 @@ function createScoreButton() {
       document.body.removeChild(overlay);
     });
   });
-  $("section").appendChild(scoreButton);
+  $("footer").appendChild(scoreButton);
 }
 
 function createDiferentDomains() {
@@ -129,7 +130,7 @@ function createDiferentDomains() {
         if (!isNaN(lessonNumber)) {
           addImagesForLessons(lessonNumber);
         }
-        createScoreButton();
+        // createScoreButton();
       });
   });
   document.body.insertBefore(lessonSelect, document.getElementById("display-statements"));
@@ -214,6 +215,26 @@ const calcScrollValue = () => {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
+
+// Step 1: Create the shuffle button element
+function createShuffleButton() {
+  const shuffleButton = document.createElement("button");
+  shuffleButton.id = "shuffleButton";
+  shuffleButton.textContent = "Shuffle";
+  shuffleButton.addEventListener("click", shuffleStatements);
+  document.querySelector("footer").appendChild(shuffleButton);
+}
+
+function shuffleStatements() {
+  const statements = document.querySelectorAll(".statements");
+  const statementsArray = Array.from(statements);
+  statementsArray.shuffle();
+  const displayStatementsContainer = document.getElementById("display-statements");
+  displayStatementsContainer.innerHTML = "";
+  statementsArray.forEach(statement => {
+    displayStatementsContainer.appendChild(statement);
+  });
+}
 
 loadStatements();
 initEvents();
