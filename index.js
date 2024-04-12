@@ -10,25 +10,32 @@ function loadStatements() {
     .then(statements => {
       displayStatements(statements);
       createScoreButton();
-      createDiferentDomains();
+      createDifferentDomains();
       createShuffleButton();
     });
 }
 
 function displayStatements(statements) {
   statements.shuffle();
-  printStatements(statements);
-  var statementsContent = document.querySelectorAll(".statements");
+  const statementsContainer = $("#display-statements");
+  const fragment = document.createDocumentFragment();
+  statements.forEach(statement => {
+    const div = createStatementDiv(statement.content, statement.state);
+    fragment.appendChild(div);
+  });
+  statementsContainer.innerHTML = ""; // Clear existing content
+  statementsContainer.appendChild(fragment);
+  const statementsContent = document.querySelectorAll(".statements");
   randomRotateDivs(statementsContent, angleRange);
   addClickListeners();
 }
 
-function printStatements(statements) {
-  const statementsMapResult = statements.map(statement => {
-    return `<div class="statements" data-state="${statement.state}">${statement.content}
-     <span class="displaySpan">${statement.state}</span></div>`;
-  });
-  $("#display-statements").innerHTML = statementsMapResult.join("");
+function createStatementDiv(content, state) {
+  const div = document.createElement("div");
+  div.className = "statements";
+  div.setAttribute("data-state", state);
+  div.innerHTML = `${content}<span class="displaySpan">${state}</span>`;
+  return div;
 }
 
 function addClickListeners() {
@@ -36,19 +43,13 @@ function addClickListeners() {
   statementsContent.forEach(div => {
     div.addEventListener("click", function () {
       const state = div.getAttribute("data-state");
-      if (state === "true") {
-        div.classList.add("crossClick");
-        div.classList.remove("crossClickFalse"); // Remove false class if exists
-      } else {
-        div.classList.add("crossClickFalse");
-        div.classList.remove("crossClick"); // Remove true class if exists
-      }
+      div.classList.toggle(state === "true" ? "crossClick" : "crossClickFalse");
     });
   });
 }
 
 function randCongrats() {
-  var congrat = [
+  const congrat = [
     "Awesome!",
     "Good job!",
     "Knew you could do it!",
@@ -59,8 +60,7 @@ function randCongrats() {
     "Keep going!",
     "Easy, right?"
   ];
-  var congrats = Math.floor(Math.random() * congrat.length);
-  return congrat[congrats];
+  return congrat[Math.floor(Math.random() * congrat.length)];
 }
 
 function createScoreButton() {
@@ -69,35 +69,34 @@ function createScoreButton() {
   scoreButton.textContent = "Score";
   scoreButton.addEventListener("click", function () {
     const correctScore = document.querySelectorAll(".crossClickFalse").length;
-    // const totalScore = document.querySelectorAll(".statements").length;
     const congratMessage = randCongrats();
     const placeholder = "Enter your name";
-
-    const overlay = document.createElement("div");
-    overlay.id = "overlay";
-
-    const content = document.createElement("div");
-    content.id = "overlay-content";
-    content.innerHTML = `
-    <form id="custom-prompt">
-      <label for="custom-prompt-input">${congratMessage}</label>
-      <div class="tbar">Correct Score is: ${correctScore}
-        <input type="text" id="custom-prompt-input" placeholder="${placeholder}" required>
-        <button type="submit">Close</button>
-      </div>
-    </form>`;
-    overlay.appendChild(content);
+    const overlay = createOverlay(congratMessage, correctScore, placeholder);
     document.body.appendChild(overlay);
-
-    // Close overlay when close button is clicked
-    document.getElementById("close-overlay").addEventListener("click", function () {
-      document.body.removeChild(overlay);
-    });
   });
   $("footer").appendChild(scoreButton);
 }
 
-function createDiferentDomains() {
+function createOverlay(congratMessage, correctScore, placeholder) {
+  const overlay = document.createElement("div");
+  overlay.id = "overlay";
+  overlay.innerHTML = `
+    <div id="overlay-content">
+      <form id="custom-prompt">
+        <label>${congratMessage}</label>
+        <div class="tbar">Correct Score is: ${correctScore}
+          <input type="text" id="custom-prompt-input" placeholder="${placeholder}" required>
+          <button type="button" id="close-overlay">Close</button>
+        </div>
+      </form>
+    </div>`;
+  overlay.querySelector("#close-overlay").addEventListener("click", function () {
+    document.body.removeChild(overlay);
+  });
+  return overlay;
+}
+
+function createDifferentDomains() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
@@ -114,11 +113,10 @@ function createDiferentDomains() {
       <option value="Lesson10">Roman Centurion</option>
     </optgroup>
     <optgroup label="5+">
-    <option value="Lesson3">Lost son</option>
-    <option value="Lesson5">Sermon on the mount</option>
-    <option value="Lesson8">The Lepers</option>
-  </optgroup>
-  `;
+      <option value="Lesson3">Lost son</option>
+      <option value="Lesson5">Sermon on the mount</option>
+      <option value="Lesson8">The Lepers</option>
+    </optgroup>`;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
     fetch(`/lessons/${lesson}.json`)
@@ -130,15 +128,14 @@ function createDiferentDomains() {
         if (!isNaN(lessonNumber)) {
           addImagesForLessons(lessonNumber);
         }
-        // createScoreButton();
       });
   });
-  document.body.insertBefore(lessonSelect, document.getElementById("display-statements"));
+  document.body.insertBefore(lessonSelect, $("#display-statements"));
 }
 
 function addImagesForLessons(lessonNumber) {
-  const wrapImg1 = document.getElementById("wrapImg1");
-  const wrapImg2 = document.getElementById("wrapImg2");
+  const wrapImg1 = $("#wrapImg1");
+  const wrapImg2 = $("#wrapImg2");
 
   const img1 = document.createElement("img");
   img1.src = `images/Lesson${lessonNumber}Img1.png`;
@@ -150,14 +147,11 @@ function addImagesForLessons(lessonNumber) {
 }
 
 function clearImages() {
-  const wrapImg1 = document.getElementById("wrapImg1");
-  const wrapImg2 = document.getElementById("wrapImg2");
-  wrapImg1.innerHTML = "";
-  wrapImg2.innerHTML = "";
+  $("#wrapImg1").innerHTML = "";
+  $("#wrapImg2").innerHTML = "";
 }
 
 function randomRotateDivs(statementsContent, angleRange) {
-  // console.warn("divs", divs);
   statementsContent.forEach(function (div) {
     var rotation = Math.floor(Math.random() * (angleRange[1] - angleRange[0] + 1)) + angleRange[0];
     div.style.transform = "rotate(" + rotation + "deg)";
@@ -177,7 +171,6 @@ Array.prototype.shuffle = function () {
   }
   return this;
 };
-var array = document.querySelectorAll(".statements"); // Select statementsContent by class statements
 
 function onStatementsUpdate(e) {
   var value = e.target.value.trim();
@@ -187,7 +180,6 @@ function onStatementsUpdate(e) {
     const state = statement.trim().startsWith("T") ? false : true;
     return { content: statement, state: state };
   });
-  console.info("statement:", statements, statementsArray);
   displayStatements(statementsArray);
   createScoreButton();
 }
@@ -198,7 +190,7 @@ function initEvents() {
 }
 
 const calcScrollValue = () => {
-  const scrollProgress = document.querySelector(".progress__scroll");
+  const scrollProgress = $(".progress__scroll");
   const pos = document.documentElement.scrollTop;
   const calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const scrollValue = Math.round((pos * 100) / calcHeight);
@@ -214,27 +206,8 @@ const calcScrollValue = () => {
 };
 
 window.onscroll = calcScrollValue;
-window.onload = calcScrollValue;
-
-// Step 1: Create the shuffle button element
-function createShuffleButton() {
-  const shuffleButton = document.createElement("button");
-  shuffleButton.id = "shuffleButton";
-  shuffleButton.textContent = "Shuffle";
-  shuffleButton.addEventListener("click", shuffleStatements);
-  document.querySelector("footer").appendChild(shuffleButton);
-}
-
-function shuffleStatements() {
-  const statements = document.querySelectorAll(".statements");
-  const statementsArray = Array.from(statements);
-  statementsArray.shuffle();
-  const displayStatementsContainer = document.getElementById("display-statements");
-  displayStatementsContainer.innerHTML = "";
-  statementsArray.forEach(statement => {
-    displayStatementsContainer.appendChild(statement);
-  });
-}
-
-loadStatements();
-initEvents();
+window.onload = function () {
+  calcScrollValue();
+  initEvents();
+  loadStatements();
+};
