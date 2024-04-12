@@ -5,13 +5,12 @@ function $(selector) {
 }
 
 function loadStatements() {
-  fetch("/lessons/Lesson0.json")
+  fetch("Lesson0.json")
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
       createScoreButton();
       createDifferentDomains();
-      createShuffleButton();
     });
 }
 
@@ -119,7 +118,7 @@ function createDifferentDomains() {
     </optgroup>`;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
-    fetch(`/lessons/${lesson}.json`)
+    fetch(`${lesson}.json`)
       .then(response => response.json())
       .then(statements => {
         displayStatements(statements);
@@ -181,7 +180,6 @@ function onStatementsUpdate(e) {
     return { content: statement, state: state };
   });
   displayStatements(statementsArray);
-  createScoreButton();
 }
 
 function initEvents() {
