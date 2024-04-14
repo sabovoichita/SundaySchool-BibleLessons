@@ -7,7 +7,7 @@
 - [Voichita Maria Truscai](https://github.com/sabovoichita)
 - [Denisa Puie](https://github.com/dpuie)
 
-## demo
+## demo [live link](https://sabovoichita.github.io/sunday-school-cross-out-game/)
 
 ## Description
 
@@ -16,8 +16,6 @@
 - Children will be able to check their knowledge by underlining the incorrect statements by clicking on the incorrect sentences. At the end of testing, the SCORE button will create an alert that provides the results of the game along with a short motivational message.
 - From the section All Lessons, different lessons can be selected, depending on the category of children who will access the page, with sentences that will contain different statements depending on the lesson studied. They will work based on the principle presented above.
 - The function createDifferentDomains1 will be used to add more lessons in the future, covering an entire year's curriculum.
-
-[live link](https://sabovoichita.github.io/sunday-school-cross-out-game/)
 
 ## Descriere
 
