@@ -60,7 +60,7 @@ button {
 #shuffleButton {
   position: fixed;
   bottom: 0;
-  right: 60px;
+  right: 100px;
 }
 
 section {
@@ -138,8 +138,6 @@ img {
   height: 100px;
   padding: 0px;
   border: 3px solid white;
-  margin-right: 150px;
-  margin-left: 150px;
 }
 #wrapImg1 img {
   aspect-ratio: 1;
@@ -148,6 +146,7 @@ img {
   border-radius: 50%;
   transform: rotate(-5deg);
   margin-bottom: 20px;
+  margin-left: 110px;
 }
 #wrapImg2 img {
   aspect-ratio: 1;
@@ -155,6 +154,7 @@ img {
   background-color: black;
   border-radius: 50%;
   transform: rotate(+5deg);
+  margin-right: 300px;
 }
 
 #textInputs {
@@ -239,7 +239,7 @@ section #scoreButton {
 
 .progress__scroll {
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   right: 4px;
   height: 70px;
   width: 70px;

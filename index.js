@@ -11,6 +11,7 @@ function loadStatements() {
       displayStatements(statements);
       createScoreButton();
       createDifferentDomains();
+      createShuffleButton();
     });
 }
 
@@ -185,6 +186,26 @@ function onStatementsUpdate(e) {
 function initEvents() {
   $("#textInputs").value = localStorage.getItem("statements");
   $("#textInputs").addEventListener("input", onStatementsUpdate);
+}
+
+// Step 1: Create the shuffle button element
+function createShuffleButton() {
+  const shuffleButton = document.createElement("button");
+  shuffleButton.id = "shuffleButton";
+  shuffleButton.textContent = "Shuffle";
+  shuffleButton.addEventListener("click", shuffleStatements);
+  document.querySelector("footer").appendChild(shuffleButton);
+}
+
+function shuffleStatements() {
+  const statements = document.querySelectorAll(".statements");
+  const statementsArray = Array.from(statements);
+  statementsArray.shuffle();
+  const displayStatementsContainer = document.getElementById("display-statements");
+  displayStatementsContainer.innerHTML = "";
+  statementsArray.forEach(statement => {
+    displayStatementsContainer.appendChild(statement);
+  });
 }
 
 const calcScrollValue = () => {
