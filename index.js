@@ -137,11 +137,11 @@ function addImagesForLessons(lessonNumber) {
   const wrapImg2 = $("#wrapImg2");
 
   const img1 = document.createElement("img");
-  img1.src = `images/lesson${lessonNumber}Img1.png`;
+  img1.src = `images/lectie${lessonNumber}Img1.png`;
   wrapImg1.appendChild(img1);
 
   const img2 = document.createElement("img");
-  img2.src = `images/lesson${lessonNumber}Img2.png`;
+  img2.src = `images/lectie${lessonNumber}Img2.png`;
   wrapImg2.appendChild(img2);
 }
 
