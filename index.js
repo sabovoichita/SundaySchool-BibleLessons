@@ -5,7 +5,7 @@ function $(selector) {
 }
 
 function loadStatements() {
-  fetch("lesson0.json")
+  fetch("lessons/lesson0.json")
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
@@ -118,7 +118,7 @@ function createDifferentDomains() {
     </optgroup>`;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
-    fetch(`${lesson}.json`)
+    fetch(`lessons/${lesson}.json`)
       .then(response => response.json())
       .then(statements => {
         displayStatements(statements);
