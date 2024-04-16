@@ -59,7 +59,7 @@ button {
 }
 #shuffleButton {
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   right: 100px;
 }
 
