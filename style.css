@@ -289,3 +289,6 @@ section #scoreButton {
     align-content: space-between;
   }
 }
+summary {
+  color: white;
+}

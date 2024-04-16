@@ -1,6 +1,6 @@
 # Sunday School Games
 
-![Preview](images/readme.img.png)
+![Preview](images/readme.png)
 
 ## Team Members
 

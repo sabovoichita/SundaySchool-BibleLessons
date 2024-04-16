@@ -5,7 +5,7 @@ function $(selector) {
 }
 
 function loadStatements() {
-  fetch("lessons/lesson0.json")
+  fetch("lessons/0.json")
     .then(response => response.json())
     .then(statements => {
       displayStatements(statements);
@@ -100,22 +100,22 @@ function createDifferentDomains() {
   const lessonSelect = document.createElement("select");
   lessonSelect.id = "lessonSelect";
   lessonSelect.innerHTML = `
-    <option value="lesson0">All lessons</option>
+    <option value="0">All lessons</option>
     <optgroup label="Teens">
-      <option value="lesson1">Simeon & Anna</option>
-      <option value="lesson6">The Parable of the Persistent Widow</option>
-      <option value="lesson9">Mary and Martha</option>
+      <option value="1">Simeon & Anna</option>
+      <option value="6">The Parable of the Persistent Widow</option>
+      <option value="9">Mary and Martha</option>
     </optgroup>
     <optgroup label="Preteens">
-      <option value="lesson2">Wedding at Cana</option>
-      <option value="lesson4">Fisher of Man</option>
-      <option value="lesson7">Good Samaritan</option>
-      <option value="lesson10">Roman Centurion</option>
+      <option value="2">Wedding at Cana</option>
+      <option value="4">Fisher of Man</option>
+      <option value="7">Good Samaritan</option>
+      <option value="10">Roman Centurion</option>
     </optgroup>
     <optgroup label="5+">
-      <option value="lesson3">Lost son</option>
-      <option value="lesson5">Sermon on the mount</option>
-      <option value="lesson8">The Lepers</option>
+      <option value="3">Lost son</option>
+      <option value="5">Sermon on the mount</option>
+      <option value="8">The Lepers</option>
     </optgroup>`;
   lessonSelect.addEventListener("change", function () {
     const lesson = this.value;
@@ -138,11 +138,11 @@ function addImagesForLessons(lessonNumber) {
   const wrapImg2 = $("#wrapImg2");
 
   const img1 = document.createElement("img");
-  img1.src = `images/lesson${lessonNumber}Img1.png`;
+  img1.src = `images/${lessonNumber}-1.png`;
   wrapImg1.appendChild(img1);
 
   const img2 = document.createElement("img");
-  img2.src = `images/lesson${lessonNumber}Img2.png`;
+  img2.src = `images/${lessonNumber}-2.png`;
   wrapImg2.appendChild(img2);
 }
 
